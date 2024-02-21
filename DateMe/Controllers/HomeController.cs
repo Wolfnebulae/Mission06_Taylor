@@ -30,16 +30,26 @@ namespace DateMe.Controllers
                 ViewBag.Categories = _context.Categories
                 .OrderBy(x => x.Category)
                 .ToList();
-            return View();
+            return View("DatingApplication", new Application());
         }
 
         [HttpPost]
         public IActionResult DatingApplication(Application response)
         {
-            _context.Movies.Add(response);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Movies.Add(response);
+                _context.SaveChanges();
 
-            return View("Confirmation", response);
+                return View("Confirmation", response);
+            }
+            else
+            {
+                ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.Category)
+                .ToList();
+                return View(response);
+            }
         }
 
         public IActionResult ViewMovies()
