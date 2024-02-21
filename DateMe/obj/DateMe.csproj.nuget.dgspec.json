@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jwtay\\Source\\Repos\\Mission07_Taylor\\DateMe\\DateMe.csproj": {}
+    "C:\\Users\\jwtay\\source\\repos\\Mission07_Taylor\\DateMe\\DateMe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jwtay\\Source\\Repos\\Mission07_Taylor\\DateMe\\DateMe.csproj": {
+    "C:\\Users\\jwtay\\source\\repos\\Mission07_Taylor\\DateMe\\DateMe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jwtay\\Source\\Repos\\Mission07_Taylor\\DateMe\\DateMe.csproj",
+        "projectUniqueName": "C:\\Users\\jwtay\\source\\repos\\Mission07_Taylor\\DateMe\\DateMe.csproj",
         "projectName": "DateMe",
-        "projectPath": "C:\\Users\\jwtay\\Source\\Repos\\Mission07_Taylor\\DateMe\\DateMe.csproj",
+        "projectPath": "C:\\Users\\jwtay\\source\\repos\\Mission07_Taylor\\DateMe\\DateMe.csproj",
         "packagesPath": "C:\\Users\\jwtay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jwtay\\Source\\Repos\\Mission07_Taylor\\DateMe\\obj\\",
+        "outputPath": "C:\\Users\\jwtay\\source\\repos\\Mission07_Taylor\\DateMe\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jwtay\\AppData\\Roaming\\NuGet\\NuGet.Config",

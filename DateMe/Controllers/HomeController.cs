@@ -1,14 +1,15 @@
 using DateMe.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace DateMe.Controllers
 {
     public class HomeController : Controller
     {
-        private DatingApplicationContext _context;
+        private MovieApplicationContext _context;
 
-        public HomeController(DatingApplicationContext temp) 
+        public HomeController(MovieApplicationContext temp) 
         {
             _context = temp;
         }
@@ -26,6 +27,9 @@ namespace DateMe.Controllers
         [HttpGet]
         public IActionResult DatingApplication()
         {
+                ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.Category)
+                .ToList();
             return View();
         }
 
@@ -36,6 +40,49 @@ namespace DateMe.Controllers
             _context.SaveChanges();
 
             return View("Confirmation", response);
+        }
+
+        public IActionResult ViewMovies()
+        {
+            var movieList = _context.Movies.Include("Category").ToList();
+
+            return View(movieList);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Application recordToEdit = _context.Movies
+                .Single(x => x.MovieId == id);
+
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.Category)
+                .ToList();
+            return View("DatingApplication", recordToEdit);
+        }
+        [HttpPost]
+        public IActionResult Edit(Application updatedInfo) 
+        {
+            _context.Update(updatedInfo);
+            _context.SaveChanges();
+
+            return RedirectToAction("ViewMovies");
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            Application recordToDelete = _context.Movies
+                .Single(x => x.MovieId == id);
+
+            return View(recordToDelete);
+        }
+        [HttpPost]
+        public IActionResult Delete(Application movie)
+        {
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+
+            return RedirectToAction("ViewMovies");
         }
     }
 }

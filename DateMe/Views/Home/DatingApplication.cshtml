@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Movie Submission";
 }
 
 @model Application
@@ -10,8 +11,16 @@
 
 <form method="post">
 
+    <input type="hidden" asp-for="MovieId"/>
+    <br />
     <label asp-for="Category">Category</label>
-    <input asp-for="Category"/>
+    <select asp-for="CategoryId">
+        <option value="">Select a category</option>
+        @foreach (MovieCategory c in ViewBag.Categories) 
+        {
+            <option value="@c.CategoryId">@c.Category</option>
+        }
+    </select>
     <br />
     <label asp-for="Title">Title</label>
     <input asp-for="Title"/>
@@ -36,12 +45,12 @@
         <option value="False">No</option>
     </select>
     <br />
-    <label asp-for="Lent_To">Lent To</label>
-    <input asp-for="Lent_To" />
+    <label asp-for="LentTo">Lent To</label>
+    <input asp-for="LentTo" />
     <br />
     <label asp-for="Notes">Notes</label>
     <input asp-for="Notes" />
-
+    <br />
     <button type="submit">Submit application</button>
 
 </form>

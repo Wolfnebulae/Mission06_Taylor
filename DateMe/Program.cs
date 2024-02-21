@@ -10,7 +10,7 @@ internal class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 
-        builder.Services.AddDbContext<DatingApplicationContext>(options =>
+        builder.Services.AddDbContext<MovieApplicationContext>(options =>
         {
             options.UseSqlite(builder.Configuration["ConnectionStrings:MovieConnection"]);
         });
